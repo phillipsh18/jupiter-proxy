@@ -6,10 +6,11 @@ const server = http.createServer(async (req, res) => {
     try {
       const { data } = await axios.get('https://price.jup.ag/v4/price');
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(data));
+      res.end(JSON.stringify(data.data));
     } catch (err) {
-      res.writeHead(500);
-      res.end('Failed to fetch price');
+      console.error('[Jupiter Proxy Error]', err.message);
+      res.writeHead(502);
+      res.end(JSON.stringify({ error: err.message }));
     }
   } else {
     res.writeHead(404);
@@ -20,4 +21,5 @@ const server = http.createServer(async (req, res) => {
 server.listen(3000, () => {
   console.log('🔁 Jupiter proxy running on http://localhost:3000/price');
 });
+
 
