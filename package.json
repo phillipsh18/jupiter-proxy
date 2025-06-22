@@ -1,12 +1,14 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm jupiter-proxy.ts"
+    "build": "tsc",
+    "start": "node dist/src/jupiter-proxy.js"
   },
   "dependencies": {
-    "axios": "^1.10.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "axios": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "typescript": "^5.0.0"
   }
 }
-
