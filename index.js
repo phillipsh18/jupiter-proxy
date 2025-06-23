@@ -6,9 +6,8 @@ const port = process.env.PORT || 3000;
 
 app.get('/price', async (req, res) => {
   const ids = req.query.ids;
-  const target = ids
-    ? `https://price.jup.ag/v4/price?ids=${ids}`
-    : `https://price.jup.ag/v4/price`;
+const base = 'https://deserve-gzip-garlic-predictions.trycloudflare.com/price';
+const target = ids ? `${base}?ids=${ids}` : base;
 
   try {
     const response = await axios.get(target);
