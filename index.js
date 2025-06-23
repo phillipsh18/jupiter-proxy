@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.get('/price', async (req, res) => {
   const ids = req.query.ids;
-  const base = 'https://deserve-gzip-garlic-predictions.trycloudflare.com/price';
+  const base = 'https://price.jup.ag/v4/price';
   const target = ids ? `${base}?ids=${ids}` : base;
 
   try {
