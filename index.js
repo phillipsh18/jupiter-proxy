@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = 10000;
 
 app.get('/price', async (req, res) => {
   const ids = req.query.ids;
