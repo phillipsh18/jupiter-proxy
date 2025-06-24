@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 
 const app = express();
-const PORT = 10000;
+const PORT = process.env.PORT || 3000;
 
 app.get('/price', async (req, res) => {
   const ids = req.query.ids;
@@ -18,7 +18,7 @@ app.get('/price', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`✅ Jupiter proxy running on http://localhost:${port}/price`);
+app.listen(PORT, () => {
+  console.log(`✅ Jupiter proxy running on http://localhost:${PORT}/price`);
 });
 
